@@ -14,17 +14,14 @@ public class MatrixReader {
             throw new FileNotFoundException();
         }
 
-        ArrayList<ArrayList<Double>> data = new ArrayList<ArrayList<Double>>();
+        ArrayList<ArrayList<Double>> data = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(path));
         String line;
         int j = 0;
         while ((line = br.readLine()) != null) {
             String[] values = line.split(" ");
             data.add(new ArrayList<>());
-            for (int i = 0; i< values.length;i++)
-            {
-                data.get(j).add(Double.parseDouble(values[i]));
-            }
+            for (String value : values) data.get(j).add(Double.parseDouble(value));
             j++;
         }
 

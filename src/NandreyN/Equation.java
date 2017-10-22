@@ -22,7 +22,7 @@ public class Equation {
             swapLines(i, i + 1);
             i++;
         }
-        i = (i == 0) ? 0 : i--;
+        i = (i == 0) ? 0 : --i;
         if (matrix.get(i).get(0) == 0) {
             throw new EqSetException("Equation set has no answers");
         }
@@ -75,11 +75,11 @@ public class Equation {
         double last = matrix.get(n).get(n);
         double b = matrix.get(n).get(n + 1);
 
-        return (last == 0 && b != 0 || last == 0 && b == 0) ? false : true;
+        return !(last == 0 && b != 0);
     }
 
     private boolean isAnswerUnique() {
-        return (matrix.get(n).get(n + 1) != 0.) ? true : false;
+        return (matrix.get(n).get(n + 1) != 0.);
     }
 
     private void reverseStep() {
